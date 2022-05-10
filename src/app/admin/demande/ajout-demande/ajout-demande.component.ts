@@ -1,3 +1,4 @@
+import { DemandeService } from './../../../shared/services/demande.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -11,7 +12,7 @@ export class AjoutDemandeComponent implements OnInit {
   Demande: any[] = [];
   selectedValue = null;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private DemandeService: DemandeService) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -21,20 +22,21 @@ export class AjoutDemandeComponent implements OnInit {
         Validators.required,
       ]),
     });
-    /* this.CategoryService.getAll().subscribe((data: Category[]) => {
-      this.Category = data;
-      console.log(this.Category);
-    }); */
   }
   get f() {
     return this.form.controls;
   }
   submit() {
-    console.log(this.form.valid);
+    let data = {
+      matriculeFiscalSociete: this.form.value.demande_matricule_fiscal_societe,
+      nameSociete: this.form.value.demande_name_societe,
+      type: this.form.value.demande_type,
+      state: 0,
+      dateCreated: new Date(),
+    };
 
-    /*   this.ProductService.create(this.form.value).subscribe((res) => {
-      console.log('Product created successfully!');
-      this.router.navigateByUrl('product/index');
-    }); */
+    this.DemandeService.saveDemande(data).subscribe((res) => {
+      this.router.navigateByUrl('/admin/demande');
+    });
   }
 }

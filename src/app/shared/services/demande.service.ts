@@ -32,47 +32,47 @@ export class DemandeService {
     this.jwToken = localStorage.getItem('token');
   }
   getAll() {
-    if(this.jwToken==null){this.loadToken();}
-    console.log("jwt pour get"+this.jwToken)
-    return this.httpClient.get(this.apiURL+"/demandes",{headers:new HttpHeaders({'Authorization':this.jwToken})});
-
-    /*   console.log('jwt pour get' + localStorage.getItem('token'));
-    return this.httpClient.get<any[]>(this.apiURL+"/demandes", {
-      headers: new HttpHeaders({ Authorization: this.jwToken }),
-    }); */
-  }
-
-  /* q
-    return this.httpClient
-      .post<Product>(this.apiURL, JSON.stringify(Product), this.httpOptions)
-      .pipe(catchError(this.errorHandler));
-  }
-
-  find(id: any): Observable<Product> {
-    return this.httpClient
-      .get<Product>(this.apiURL + id)
-      .pipe(catchError(this.errorHandler));
-  }
-
-  update(id: any, Product: any): Observable<Product> {
-    return this.httpClient
-      .put<Product>(this.apiURL + id, JSON.stringify(Product), this.httpOptions)
-      .pipe(catchError(this.errorHandler));
-  }
-
-  delete(id: any) {
-    return this.httpClient
-      .delete<Product>(this.apiURL + id, this.httpOptions)
-      .pipe(catchError(this.errorHandler));
-  }
-
-  errorHandler(error: any) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      errorMessage = error.error.message;
-    } else {
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    if (this.jwToken == null) {
+      this.loadToken();
     }
-    return throwError(errorMessage);
-  } */
+    return this.httpClient.get(this.apiURL + '/demandes', {
+      headers: new HttpHeaders({ Authorization: this.jwToken }),
+    });
+  }
+
+  saveDemande(demande: any) {
+    if (this.jwToken == null) {
+      this.loadToken();
+    }
+    return this.httpClient.post(this.apiURL, demande, {
+      headers: new HttpHeaders({ Authorization: this.jwToken }),
+    });
+  }
+
+  AccepterDemande(idDemande: any) {
+    if (this.jwToken == null) {
+      this.loadToken();
+    }
+
+    return this.httpClient.get(this.apiURL + '/accepterDemande/' + idDemande, {
+      headers: new HttpHeaders({ Authorization: this.jwToken }),
+    });
+  }
+
+  RefuserDemande(idDemande: any) {
+    if (this.jwToken == null) {
+      this.loadToken();
+    }
+    return this.httpClient.get(this.apiURL + '/refuserDemande/' + idDemande, {
+      headers: new HttpHeaders({ Authorization: this.jwToken }),
+    });
+  }
+  EnvoyerDemande(demande: any) {
+    if (this.jwToken == null) {
+      this.loadToken();
+    }
+    return this.httpClient.post(this.apiURL + '/envoyerUneDemande', demande, {
+      headers: new HttpHeaders({ Authorization: this.jwToken }),
+    });
+  }
 }

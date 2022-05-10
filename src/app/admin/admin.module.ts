@@ -1,3 +1,4 @@
+import { EnvoyerDemandeComponent } from './demande/envoyer-demande/envoyer-demande.component';
 import { AjoutDemandeComponent } from './demande/ajout-demande/ajout-demande.component';
 import { ListDemandeComponent } from './demande/list-demande/list-demande.component';
 import { NgModule } from '@angular/core';
@@ -19,7 +20,7 @@ import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AddComponent, ListDemandeComponent,AjoutDemandeComponent],
+  declarations: [AddComponent, ListDemandeComponent,AjoutDemandeComponent, EnvoyerDemandeComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,

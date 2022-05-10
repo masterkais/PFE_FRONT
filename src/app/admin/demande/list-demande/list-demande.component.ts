@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { DemandeService } from './../../../shared/services/demande.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListDemandeComponent implements OnInit {
   public listOfData: any = [];
-  constructor(private demandeService: DemandeService) {}
+  constructor(private demandeService: DemandeService, private router: Router) {}
 
   ngOnInit(): void {
     this.getAll();
@@ -19,6 +20,22 @@ export class ListDemandeComponent implements OnInit {
       console.log(dataa);
     });
   }
-  onEdit(data: any) {}
-  onDelete(data: any) {}
+  accepteDemande(id: any) {
+    this.demandeService.AccepterDemande(id).subscribe((res) => {
+      this.ngOnInit();
+    });
+  }
+
+  refusDemande(id: any) {
+    this.demandeService.RefuserDemande(id).subscribe((res) => {
+      this.ngOnInit();
+    });
+  }
+
+  EnvoyerDemande(id: any) {
+    /* this.demandeService.EnvoyerDemande(id).subscribe((res) => {
+      this.ngOnInit();
+    }); */
+    this.router.navigateByUrl('/admin/demande/envoyer');
+  }
 }

@@ -1,17 +1,46 @@
 <nz-table #basicTable [nzData]="listOfData">
   <thead>
     <tr>
-      <th>demande_date_accepted</th>
+      <th>Nom</th>
+      <th>Date Creation</th>
+      <th>Date Accpted</th>
+      <th>Status</th>
       <th>Action</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let data of basicTable.data">
-      <td>{{ data.demande_date_accepted }}</td>
+      <td>{{ data.nameSociete }}</td>
+      <td>{{ data.dateCreated }}</td>
+      <td>{{ data.dateAccpted }}</td>
+      <td>{{ data.state === 0 ? "Encours" : "Accpted" }}</td>
       <td>
-        <a>Action 一 {{ data.demande_date_accepted }}</a>
         <nz-divider nzType="vertical"></nz-divider>
-        <a>Delete</a>
+        <button
+          nz-button
+          nzType="primary"
+          *ngIf="data.state === 0"
+          (click)="accepteDemande(data.id)"
+        >
+          Accepte
+        </button>
+        <button
+          nz-button
+          nzType="primary"
+          *ngIf="data.state === 0"
+          nzDanger
+          (click)="refusDemande(data.id)"
+        >
+          Refuser
+        </button>
+        <button
+          nz-button
+          nzType="default"
+          *ngIf="data.state === 0"
+          (click)="EnvoyerDemande(data)"
+        >
+          Envoyer Demande
+        </button>
       </td>
     </tr>
   </tbody>

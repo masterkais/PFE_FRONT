@@ -1,3 +1,4 @@
+import { EnvoyerDemandeComponent } from './demande/envoyer-demande/envoyer-demande.component';
 import { AjoutDemandeComponent } from './demande/ajout-demande/ajout-demande.component';
 import { ListDemandeComponent } from './demande/list-demande/list-demande.component';
 import { EditComponent } from './clients/edit/edit.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   //demande
   { path: 'demande', component: ListDemandeComponent },
   { path: 'demande/add', component: AjoutDemandeComponent },
+  { path: 'demande/envoyer', component: EnvoyerDemandeComponent },
 ];
 
 @NgModule({
