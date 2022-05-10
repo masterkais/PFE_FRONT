@@ -1,23 +1,18 @@
-<!--
-<nz-table #basicTable [nzData]="data">
+<nz-table #basicTable [nzData]="listOfData">
   <thead>
     <tr>
-      <th>dateCreated</th>
-      <th>dateAccepted</th>
-
+      <th>demande_date_accepted</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let data of basicTable.data">
-      <td>{{ data.dateCreated }}</td>
-      <td>{{ data.dateAccepted }}</td>
+      <td>{{ data.demande_date_accepted }}</td>
       <td>
-
-        <button (click)="onEdit(data)">Edit</button>
-        <button (click)="onEdit(data)">Delete</button>
+        <a>Action 一 {{ data.demande_date_accepted }}</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a>Delete</a>
       </td>
     </tr>
   </tbody>
 </nz-table>
-
- -->

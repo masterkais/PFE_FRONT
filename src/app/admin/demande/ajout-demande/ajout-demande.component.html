@@ -1,0 +1,137 @@
+<div style="background-color: #ffffff">
+  <nz-page-header
+    class="site-page-header"
+    nzBackIcon
+    nzTitle="Demande"
+    nzSubtitle="Ajout demande"
+  >
+  </nz-page-header>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" nz-form style="margin: 10px">
+    <nz-form-item>
+      <nz-form-label nzRequired nzFor="Demande">Demande type</nz-form-label>
+      <nz-select
+        formControlName="demande_type"
+        nzPlaceHolder="Select a type"
+        [(ngModel)]="selectedValue"
+      >
+        <nz-option nzLabel="Personne pysique" nzValue="0"></nz-option>
+        <nz-option nzLabel="Entreprise" nzValue="1"></nz-option>
+      </nz-select>
+
+      <!-- s
+        *ngIf="f.demande_type.touched && f.category_id.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.category_id.errors?.required">
+          <nz-alert
+            nzType="error"
+            nzShowIcon
+            nzMessage="Category is required."
+          ></nz-alert>
+        </div>
+      </div> -->
+    </nz-form-item>
+    <nz-form-item *ngIf="selectedValue == 1">
+      <nz-form-label nzRequired nzFor="name_societe">nom societe</nz-form-label>
+      <input
+        id="demande_name_societe"
+        type="text"
+        nz-input
+        formControlName="demande_name_societe"
+      />
+      <div
+        *ngIf="f.demande_name_societe.touched && f.demande_name_societe.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.demande_name_societe.errors?.required">
+          <nz-alert
+            nzType="error"
+            nzShowIcon
+            nzMessage="demande_name_societe is required."
+          ></nz-alert>
+        </div>
+      </div>
+    </nz-form-item>
+    <nz-form-item *ngIf="selectedValue == 0">
+      <nz-form-label nzRequired nzFor="name_societe">nom </nz-form-label>
+      <input
+        id="demande_name_societe"
+        type="text"
+        nz-input
+        formControlName="demande_name_societe"
+      />
+      <div
+        *ngIf="f.demande_name_societe.touched && f.demande_name_societe.invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.demande_name_societe.errors?.required">
+          <nz-alert
+            nzType="error"
+            nzShowIcon
+            nzMessage="demande_name_societe is required."
+          ></nz-alert>
+        </div>
+      </div>
+    </nz-form-item>
+
+    <nz-form-item *ngIf="selectedValue == 1">
+      <nz-form-label nzRequired nzFor="name_societe">Mat fis</nz-form-label>
+      <input
+        id="demande_matricule_fiscal_societe	"
+        type="text"
+        nz-input
+        formControlName="demande_matricule_fiscal_societe"
+      />
+      <div
+        *ngIf="
+          f.demande_matricule_fiscal_societe.touched &&
+          f.demande_matricule_fiscal_societe.invalid
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.demande_matricule_fiscal_societe.errors?.required">
+          <nz-alert
+            nzType="error"
+            nzShowIcon
+            nzMessage="demande_matricule_fiscal_societe	 is required."
+          ></nz-alert>
+        </div>
+      </div>
+    </nz-form-item>
+    <nz-form-item *ngIf="selectedValue == 0">
+      <nz-form-label nzRequired nzFor="demande_matricule_fiscal_societe"
+        >CIN
+      </nz-form-label>
+      <input
+        id="demande_matricule_fiscal_societe	"
+        type="text"
+        nz-input
+        formControlName="demande_matricule_fiscal_societe"
+      />
+      <div
+        *ngIf="
+          f.demande_matricule_fiscal_societe.touched &&
+          f.demande_matricule_fiscal_societe.invalid
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="f.demande_matricule_fiscal_societe.errors?.required">
+          <nz-alert
+            nzType="error"
+            nzShowIcon
+            nzMessage="demande_matricule_fiscal_societe	 is required."
+          ></nz-alert>
+        </div>
+      </div>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control [nzSpan]="12" [nzOffset]="5">
+        <button nz-button nzType="primary" [disabled]="!form.valid">
+          Submit
+        </button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>

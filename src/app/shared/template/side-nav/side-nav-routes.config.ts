@@ -36,7 +36,6 @@ export const ROUTES: SideNavInterface[] = [
         submenu: [],
         data: {},
       },
-
     ],
   },
   {
@@ -84,14 +83,15 @@ export const ROUTES: SideNavInterface[] = [
         submenu: [],
         data: { role: 'ADMIN' },
       },
-      /*     {
+      {
         path: 'admin/demande/add',
         title: 'Ajout demandes',
         iconType: 'nzIcon',
         icon: 'plus',
         iconTheme: 'outline',
         submenu: [],
-      }, */
+        data: { role: 'ADMIN' },
+      },
     ],
   },
   {

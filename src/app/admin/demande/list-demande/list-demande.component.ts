@@ -7,20 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-demande.component.css'],
 })
 export class ListDemandeComponent implements OnInit {
-  public data: any = [];
+  public listOfData: any = [];
   constructor(private demandeService: DemandeService) {}
 
   ngOnInit(): void {
     this.getAll();
   }
   getAll() {
-    /*   this.demandeService.getAll().subscribe(
-      (dataa) => {
-        this.data = dataa;
-      }
-    ); */
     this.demandeService.getAll().subscribe((dataa) => {
-      this.data = dataa;
+      this.listOfData = dataa;
       console.log(dataa);
     });
   }
