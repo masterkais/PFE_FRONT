@@ -1,21 +1,27 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { ClientsRoutingModule } from './clients-routing.module';
-import { TableComponent } from './table/table.component';
 import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { ListClientComponent } from './list-client/list-client.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    TableComponent,
     AddComponent,
-    EditComponent
+    EditComponent,
+    ListClientComponent
   ],
   imports: [
+    NzTableModule,
     CommonModule,
-    ClientsRoutingModule
+    ClientsRoutingModule,
+    DatePipe,
+    ReactiveFormsModule,
+  
   ]
 })
 export class ClientsModule { }

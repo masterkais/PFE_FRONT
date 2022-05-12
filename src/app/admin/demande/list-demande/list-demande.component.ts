@@ -15,6 +15,7 @@ export class ListDemandeComponent implements OnInit {
     this.getAll();
   }
   getAll() {
+    console.log("hahahaha")
     this.demandeService.getAll().subscribe((dataa) => {
       this.listOfData = dataa;
       console.log(dataa);

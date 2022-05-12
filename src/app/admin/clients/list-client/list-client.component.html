@@ -1,0 +1,31 @@
+<nz-table #basicTable [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Adresse</th>
+      <th>Email</th>
+      <th>dateNaissance</th>
+      <th>Privilege</th>
+      <th>UserName</th>
+      <th>CIN</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of listOfData">
+      <td>{{ data.firstName }}</td>
+      <td>{{ data.lastName }}</td>
+      <td>{{ data.adress }}</td>
+      <td>{{ data.email }}</td>
+      <td>{{ data.dateNaissanced }}</td>
+      <td>{{ data.groups.privileged }}</td>
+      <td>{{ data.userName }}</td>
+      <td>{{ data.cin }}</td>
+      <td>
+        <button class="btn btn-warning" (click)="onEdit(data)">modifier</button>
+        <button class="btn btn-danger" (click)="onDelete(data)">supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+  <nz-table>

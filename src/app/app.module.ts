@@ -11,6 +11,7 @@ import {
   registerLocaleData,
   PathLocationStrategy,
   LocationStrategy,
+  DatePipe,
 } from '@angular/common';
 import en from '@angular/common/locales/en';
 
@@ -25,6 +26,7 @@ import { FullLayoutComponent } from './layouts/full-layout/full-layout.component
 import { NgChartjsModule } from 'ng-chartjs';
 import { ThemeConstantService } from './shared/services/theme-constant.service';
 import { DemandeService } from './shared/services/demande.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 registerLocaleData(en);
 
@@ -43,6 +45,8 @@ registerLocaleData(en);
     TemplateModule,
     SharedModule,
     NgChartjsModule,
+    ReactiveFormsModule,
+    BrowserModule,
   ],
   providers: [
     {
@@ -58,6 +62,7 @@ registerLocaleData(en);
     AuthGuard,
     AuthenticationService,
     DemandeService,
+    DatePipe,
   ],
   bootstrap: [AppComponent],
 })

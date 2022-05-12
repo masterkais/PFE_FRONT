@@ -18,9 +18,11 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListClientComponent } from './clients/list-client/list-client.component';
+import { EditComponent } from './clients/edit/edit.component';
 
 @NgModule({
-  declarations: [AddComponent, ListDemandeComponent,AjoutDemandeComponent, EnvoyerDemandeComponent],
+  declarations: [AddComponent,EditComponent, ListDemandeComponent,AjoutDemandeComponent, EnvoyerDemandeComponent,ListClientComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
@@ -38,6 +40,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NzSelectModule,
     NzAlertModule,
     NzInputNumberModule,
+    
   ],
 })
 export class AdminModule {}

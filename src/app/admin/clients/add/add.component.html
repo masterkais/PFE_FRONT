@@ -1,1 +1,104 @@
-<p>add works!</p>
+<div style="background-color: #ffffff">
+    <nz-page-header class="site-page-header" nzBackIcon nzTitle="Utilisateur" nzSubtitle="Ajout utilisateur">
+    </nz-page-header>
+    <form [formGroup]="form" (ngSubmit)="submit()" nz-form style="margin: 10px">
+        <nz-form-item>
+            <nz-form-label nzRequired nzFor="nom">nom : </nz-form-label>
+            <input id="firstName" type="text" nz-input formControlName="firstName" />
+            <div *ngIf=" f.firstName.invalid" class="alert alert-danger">
+                <div *ngIf="f.firstName.errors?.required">
+                    <nz-alert nzType="error" nzShowIcon nzMessage="firstName is required."></nz-alert>
+                </div>
+            </div>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label nzRequired nzFor="lastName">prenom : </nz-form-label>
+            <input id="lastName" type="text" nz-input formControlName="lastName" />
+            <div *ngIf=" f.firstName.invalid" class="alert alert-danger">
+                <div *ngIf="f.lastName.errors?.required">
+                    <nz-alert nzType="error" nzShowIcon nzMessage="lastName is required."></nz-alert>
+                </div>
+            </div>
+        </nz-form-item>
+    
+        <nz-form-item>
+            <nz-form-label nzRequired nzFor="dateNaissanced">Date nessance : </nz-form-label>
+            <input id="dateNaissanced" type="date" nz-input formControlName="dateNaissanced" />
+            <div *ngIf=" f.dateNaissanced.invalid" class="alert alert-danger">
+                <div *ngIf="f.dateNaissanced.errors?.required">
+                    <nz-alert nzType="error" nzShowIcon nzMessage="dateNaissanced is required."></nz-alert>
+                </div>
+            </div>
+        </nz-form-item>
+      
+
+        <nz-form-item>
+            <nz-form-label nzRequired nzFor="group">Group : </nz-form-label>
+            <nz-select formControlName="group" nzPlaceHolder="Select a type" [(ngModel)]="selectedValue" >
+                <nz-option *ngFor="let data of groups" nzLabel="{{data.privileged}}" nzValue="{{data.id}}"></nz-option>
+            </nz-select>
+            <div *ngIf=" f.group.invalid" class="alert alert-danger">
+                <div *ngIf="f.group.errors?.required">
+                    <nz-alert nzType="error" nzShowIcon nzMessage="group is required."></nz-alert>
+                </div>
+            </div>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label nzRequired nzFor="userName">Nom utilisateur : </nz-form-label>
+            <input id="userName" type="text" nz-input formControlName="userName" />
+            <div *ngIf=" f.userName.invalid" class="alert alert-danger">
+                <div *ngIf="f.userName.errors?.required">
+                    <nz-alert nzType="error" nzShowIcon nzMessage="userName is required."></nz-alert>
+                </div>
+            </div>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label nzRequired nzFor="password">Mot de passe : </nz-form-label>
+            <input id="password" type="password" nz-input formControlName="password" />
+            <div *ngIf=" f.password.invalid" class="alert alert-danger">
+                <div *ngIf="f.password.errors?.required">
+                    <nz-alert nzType="error" nzShowIcon nzMessage="password is required."></nz-alert>
+                </div>
+            </div>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label nzRequired nzFor="adress">Adress : </nz-form-label>
+            <input id="adress" type="adress" nz-input formControlName="adress" />
+            <div *ngIf=" f.adress.invalid" class="alert alert-danger">
+                <div *ngIf="f.adress.errors?.required">
+                    <nz-alert nzType="error" nzShowIcon nzMessage="adress is required."></nz-alert>
+                </div>
+            </div>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label nzRequired nzFor="email">Email : </nz-form-label>
+            <input id="email" type="email" nz-input formControlName="email" />
+            <div *ngIf=" f.email.invalid" class="alert alert-danger">
+                <div *ngIf="f.email.errors?.required">
+                    <nz-alert nzType="error" nzShowIcon nzMessage="email is required."></nz-alert>
+                </div>
+            </div>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label nzRequired nzFor="cin">CIN : </nz-form-label>
+            <input id="cin" type="text" nz-input formControlName="cin" />
+            <div *ngIf=" f.cin.invalid" class="alert alert-danger">
+                <div *ngIf="f.cin.errors?.required">
+                    <nz-alert nzType="error" nzShowIcon nzMessage="cin is required."></nz-alert>
+                </div>
+            </div>
+        </nz-form-item>
+
+
+        <nz-form-item>
+            <nz-form-control [nzSpan]="12" [nzOffset]="5">
+                <button nz-button nzType="primary" [disabled]="!form.valid">
+                    Ajouter
+                </button>
+            </nz-form-control>
+        </nz-form-item>
+    </form>
+</div>

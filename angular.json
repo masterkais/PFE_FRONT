@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "811dc659-18b8-4aa6-848b-61ad6bf6a064"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -27,12 +30,15 @@
                 "output": "/assets/"
               }
             ],
+
             "styles": [
-              "src/styles.scss" 
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
-              "src/assets/lib/hljs/highlight.pack.js"
+              "src/assets/lib/hljs/highlight.pack.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ],
             "vendorChunk": true,
             "extractLicenses": false,
